@@ -1,0 +1,48 @@
+[package]
+name = "business-service"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Web framework
+actix-web = "4.3.1"
+actix-rt = "2.8.0"
+
+# Database
+sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "postgres", "chrono", "uuid", "json", "runtime-async-std"], default-features = false }
+mongodb = { version = "2.5.0", features = ["tokio-runtime"] }
+
+# Async utilities
+tokio = { version = "1.28.2", features = ["full"] }
+async-trait = "0.1.71"
+
+# Serialization
+serde = { version = "1.0.164", features = ["derive"] }
+serde_json = "1.0.99"
+
+# Error handling
+thiserror = "1.0.40"
+anyhow = "1.0.71"
+
+# Logging
+log = "0.4.19"
+env_logger = "0.10.0"
+
+# Configuration
+dotenv = "0.15.0"
+config = "0.13.3"
+
+# Utilities
+chrono = { version = "0.4.26", features = ["serde"] }
+uuid = { version = "1.3.3", features = ["v4", "serde"] }
+
+# Password hashing (useful for API keys or any sensitive data)
+argon2 = "0.5.0"
+
+# Tracing and metrics
+tracing = "0.1.37"
+tracing-subscriber = { version = "0.3.17", features = ["env-filter"] }
+
+# Testing
+mockall = "0.11.4"
+futures-util = "0.3.31"
